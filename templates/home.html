@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+{% load static %}
+<section class="c-intro">
+  <div class="c-intro__pic">
+    <img src="/images/love-more/intro-image.jpg" class="c-intro__image" alt="Intro image" />
+  </div>
+  <div class="c-intro__info">
+    <div class="inner-wrapper">
+      <h1 style="display: none;">More by Bourn: Love More</h1>
+      <p class="c-intro__description">Love others, love yourself, love more.</p>
+      <a href="#" class="c-button c-intro__button">The Love More Collection</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="c-main">
+  <div class="c-about p-red-wrapper">
+  <div class="c-about__info p-red-wrapper__inner">
+    <h2 class="c-about__title">Creator's Note</h2>
+    <blockquote class="c-about__quote">&ldquo;I recently saw two words that connected with me. They said "Laugh More". It reminded me of something I sometimes forget to do, especially on the hard days. This prompted me to start thinking about More. What should we do more of?&rdquo;</blockquote>
+    <p class="c-about__quote-credit">~ Kim Goulbourne aka &ldquo;<a href="http://madebybourn.com" target="_blank">Bourn</a>&rdquo;, Creator of More</p>
+    <!-- <a href="#" class="c-about__link">Get updates on new collections</a> -->
+  </div>
+</div>
+
+  <div class="c-love-more__models">
+    <img src="/images/love-more/heart.png" class="c-love-more__heart" alt="Heart" />
+    <div class="c-love-more__models-images">
+      <img  src="/images/love-more/influencers/anita.jpg" class="c-love-more__model" alt="Anita" />
+      <img src="/images/love-more/influencers/agee.jpg" class="c-love-more__model" alt="Agee" />
+    </div>
+  </div>
+
+
+<div class="c-love-more">
+  <div class="c-love-more__intro">
+    <h2 class="c-love-more__intro-title">Introducing The Love More Collection</h2>
+    <p class="c-love-more__intro-description">Love is about kindness and respect. Accepting others for who they are despite our differences.</p>
+    <small>Available for preorder February 8 - March 12</ins>. Orders will ship in March.</small>
+  </div>
+
+{% for product in products %}
+    <div class="c-love-more__product">
+      <div class="c-love-more__product-preview">
+        <img style="width:300px;height: 300px" src="{{product.image.url}}" class="c-love-more__product-image" alt="Lm the discreet" />
+        <div class="c-love-more__product-info">
+          <h3 class="c-love-more__product-title">{{product.name}}</h3>
+          <!-- <p class="c-love-more__product-subtitle">Be subtle about it.</p> -->
+          <small class="c-love-more__product-make">{{ product.description }}</small>
+          <button id="btnL" data-product={{ product.id }} data-action="add" class="update-cart c-love-more__product-button  c-button c-button--wide" >
+            <span class="c-button__align-left">Sold Out</span>
+            <span class="c-button__align-right">{{product.price}} $</span>
+          </button>
+
+          <div class="c-love-more__discount">
+            <a href="#" class="c-love-more__list-link">Join our private list</a>
+            <!-- <small class="c-love-more__open-discount">* Use code PRES15 to get 15% off! <br>Offer valid until midnight.</small> -->
+            <!-- <small class="c-love-more__open-discount">* Introductory price of $34 ends this weekend!</small> -->
+            <!-- <a href="http://sociali.io/lp/22861/lp22861" target="_blank" class="c-love-more__upviral">Share to get 10% off</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+</div>
+
+
+
+
+{% include 'carusel.html' %}
+
+
+
+
+
+  <div class="c-love-more-footer p-red-wrapper">
+  <div class="c-love-more-footer__info p-red-wrapper__inner">
+    <p class="c-love-more-footer__text">The Love More collection is available for pre-order February 8 - March 12</ins>, 2017. Orders will ship in March.</p>
+    <div class="c-share">
+      <a href="twitter" class="c-share__link social-share share-twitter" data-title="MORE by Bourn" data-url="http://morebybourn.com/love" data-social="twitter" data-message="Love Others. Love Yourself. Love More. Grab a sweatshirt from the first collection by MORE by Bourn. via @madebybourn">
+        <span class="c-share__icon"><svg viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M0 12.31c.133.022.27.036.409.042.139.005.28.008.425.008a6.85 6.85 0 0 0 2.344-.4 7.27 7.27 0 0 0 2.01-1.101 3.352 3.352 0 0 1-2.044-.7 3.46 3.46 0 0 1-1.226-1.735c.1.022.206.039.317.05a3.35 3.35 0 0 0 .81-.017c.15-.022.302-.05.458-.083a3.5 3.5 0 0 1-2.01-1.21 3.35 3.35 0 0 1-.81-2.227v-.05c.234.134.485.237.752.309.266.072.544.114.834.125a3.49 3.49 0 0 1-1.126-1.234 3.417 3.417 0 0 1-.426-1.685c0-.311.042-.617.125-.917A3.7 3.7 0 0 1 1.184.65c.434.522.918 1 1.451 1.434A10.003 10.003 0 0 0 6.296 3.97c.685.189 1.388.3 2.11.334a7 7 0 0 1-.057-.384 3.362 3.362 0 0 1-.026-.417A3.529 3.529 0 0 1 10.458.275 3.397 3.397 0 0 1 11.827 0c.5 0 .973.1 1.418.3.445.2.823.473 1.134.818.4-.078.787-.19 1.16-.334a7.653 7.653 0 0 0 1.076-.517 3.592 3.592 0 0 1-1.551 1.935 7.208 7.208 0 0 0 1.042-.209c.34-.094.664-.208.976-.342-.234.345-.498.67-.793.976a7.704 7.704 0 0 1-.959.843c0 .066.003.139.009.216.005.078.008.156.008.234 0 1.156-.217 2.327-.65 3.511a10.007 10.007 0 0 1-1.919 3.211c-.845.956-1.888 1.738-3.127 2.344-1.24.606-2.666.909-4.279.909-.49 0-.973-.036-1.451-.109a10.333 10.333 0 0 1-1.393-.308 9.08 9.08 0 0 1-1.31-.5c-.422-.2-.828-.423-1.217-.668z" class="icon-twitter icon-fill" fill="#000" fill-rule="evenodd"/></svg></span>
+        <span class="c-share__text">Tweet</span>
+      </a>
+      <a href="facebook" class="c-share__link social-share share-facebook" data-title="MORE by Bourn" data-url="http://morebybourn.com/love" data-social="facebook" data-message="">
+        <span class="c-share__icon"><svg viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M2.304 5.172V3.75C2.304 1.667 3.847 0 5.734 0H8.04v2.82H5.735c-.27 0-.563.392-.563.88v1.472h2.867V8.04H5.172V15H2.304V8.04H0V5.171h2.304z" class="icon-facebook icon-fill" fill="#000" fill-rule="evenodd"/></svg></span>
+        <span class="c-share__text">Share</span>
+      </a>
+      <a href="email" class="c-share__link social-share share-email" data-title="MORE by Bourn" data-url="http://morebybourn.com/love" data-social="email" data-subject="MORE by Bourn: The Love More Collection" data-message="Just stumbled upon MORE by Bourn: The Love More Collection -> http://morebybourn.com/love">
+        <span class="c-share__icon"><svg viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg"><title>Email</title><path d="M16.566.173a.47.47 0 0 0-.504-.103L.357 6.316a.467.467 0 0 0-.292.386.466.466 0 0 0 .205.439l3.282 2.198 1.06 3.31c.05.16.182.279.343.315l.005.001a.47.47 0 0 0 .44-.14l1.29-1.385 4.068 2.723a.463.463 0 0 0 .4.057.47.47 0 0 0 .297-.276L16.67.676a.47.47 0 0 0-.105-.503zM1.532 6.857l12.131-4.825L4.18 8.66c-.036-.033-.065-.073-.106-.1L1.532 6.856zm2.913 2.196l-.002-.005 10.661-7.45-9.856 9.963-.803-2.508zm6.35 4.006L7.212 10.66a.931.931 0 0 0-.274-.115l8.017-8.066-4.16 10.58z" class="icon-email icon-fill" fill="#000" fill-rule="evenodd"/></svg>
+</span>
+        <span class="c-share__text">Email</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/cart.css' %}" rel="stylesheet"/>
+
+
+    <title>Hello, world!</title>
+</head>
+<body class="index">
+<header class="c-header">
+    <div class="c-header__logo">
+        <svg viewBox="0 0 70 55" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#000" fill-rule="evenodd">
+                <path d="M.01 2.767c0-.177 0-.295.059-.354v-.176c.058-.236.234-.412.47-.53.528-.294 1.056-.118 1.526.412.176.236.41.589.47.648C3.766 4.238 4.882 6.24 6.35 9.124c.94 1.884 1.292 2.708 1.762 3.65.763 1.648.939 1.824 1.526-.06l.47-1.589c1.35-4.297 2.407-7.122 3.111-8.535l.059-.118c.058-.235.117-.353.117-.412.059-.294.176-.47.294-.588.646-.707 1.467-.412 1.76.235.06.118.06.236.118.412.06.294.118.648.176 1.06.177 1.412.294 4.709.294 7.829v8.83c0 1.706 0 6.415.176 8.77l.176 4.12c.059 1.59.176 3.061.294 4.474a.774.774 0 0 1-.763.883.774.774 0 0 1-.881-.765c-.294-2.767-.47-6.24-.528-8.594-.06-1.178-.06-2.767-.06-4.71-.058-1.942-.058-3.296-.058-4.12-.058-.824-.058-2.355 0-4.65v-4.238c0-1.53-.058-3.18-.117-4.886 0-.294-.059-.53-.059-.765 0-.236-.88 1.354-1.233 2.472-.352 1.118-.763 2.354-1.233 3.826l-1.291 4.12c-.176.59-.352 1.001-.411 1.296-.059.176-.118.353-.118.412l-.058.176-.118.118c-.234.294-.822.589-1.233.177l-.293-.295-.059-.176c-.058-.06-.058-.236-.117-.412l-.529-1.354c-.528-1.472-.998-2.473-1.35-3.061l-1.35-2.65L3.18 6.829c-.235-.412-.47-.883-.704-1.236-.646-1-.705.353-.705.353.059 1.236.235 4.533.235 5.298.059 2.178.059 6.416 0 12.832-.059 5.592-.059 9.772.059 12.656a.774.774 0 0 1-.764.883.774.774 0 0 1-.88-.765C.245 33.965.245 29.667.362 24.017c.118-5.71.118-9.948 0-12.656-.059-.412-.059-1.295-.117-2.531C.127 6.298.01 4.71.01 3.532v-.765zm33.845 9.477c.47 10.419.058 15.775-.94 19.601-.645 2.532-1.643 4.18-2.935 5.004-1.703 1.118-3.346.647-4.58-.765-.88-1.119-1.702-2.885-2.406-5.298-1.468-5.18-3.875-19.425-.059-26.96.88-1.59 2.7-3.12 4.403-3.532 2.877-.647 4.697 1.119 5.636 3.885.352 1.001.763 2.767.88 8.065zM32.21 9.477c-.118-1.825-.352-3.414-.822-4.709-.705-2.178-1.879-3.238-3.699-2.825-1.174.235-2.583 1.471-3.228 2.707-3.582 6.887-1.292 20.485.176 25.665.645 2.178 1.291 3.767 2.054 4.65.764.883 1.41 1 2.349.471 1.878-1.177 2.935-5.474 3.229-11.184.176-2.943.117-7.417-.06-14.775zm12.358 8.83l-.118.059c-.176.058 0 .412 0 .412 1.879 3.12 2.936 5.827 5.225 11.537.763 2.06 1.527 3.708 2.172 4.886.529 1-.998 1.825-1.526.824-.646-1.236-1.409-2.943-2.23-5.062-2.701-7.005-4.404-10.714-5.284-11.597-.06-.059-.118-.059-.177-.176-.058.412-.234 1.177-.234 1.824-.06 1.06-.06 2.06-.118 3.061 0 .471-.059 1.413-.117 2.826-.176 2.884-.176 3.708-.176 5.945 0 1.119.058 2.178.117 3.061a.774.774 0 0 1-.763.883.774.774 0 0 1-.88-.765c-.118-.883-.177-1.943-.177-3.12 0-2.296 0-3.238.176-6.122.059-1.413.118-2.354.176-2.825.353-8.065.235-15.07-.234-20.956-.06-.53-.353-.942-.235-1.472.058-.117.058-.176.117-.294a.672.672 0 0 1 .47-.412c4.638-1.118 8.219.118 10.274 2.943 2.054 2.65 1.878 6.77-.764 10.066-1.585 2.06-3.522 3.532-5.694 4.474zm-1.644-1.354c.47 0 .88-.177.88-.177.412-.176.47-.176.764-.353 3.522-1.766 5.93-5.121 6.105-7.947.059-1.471-.293-2.707-1.056-3.708-1.233-1.884-3.582-2.943-6.458-2.708-.705.06-1.057.589-1.057 1.295.294 3.473.411 7.594.352 12.362 0 .883.176 1.236.47 1.236zM60.449 1.766c-.059.059-.059.059-.059.118s-.117.294-.176.824c0 .117-.058.235-.058.412-.235 1.825-.06 4.238.176 7.358.176 2.708.293 2.531.176 4.944-.059 1.178.352 1.295 1.174 1.295.704 0 1.35 0 1.82-.058.47-.06.88.294.94.765 0 .47-.353.883-.823.883-.587.059-1.233.059-2.055.059-.763 0-1.174 0-1.232 1.177-.294 5.769-.353 10.36-.118 13.597.059 1.001.176 1.766.294 2.296 0 .118.058.236.058.294.06.06.118-.353.118-.53 0 .59.235 1.001.88 1.12 1.292.235 2.995 0 4.697-.119.88-.058 1.526-.058 1.937-.058.47 0 .822.353.822.824 0 .47-.352.824-.822.824-.763 0-3.228.235-3.992.294-1.937.059-3.346-.118-4.285-.53-.646-.235-.88-.942-1.057-1.707-.176-.647-.294-1.471-.352-2.59-.235-3.59-.118-8.712.058-12.597.06-1.942.177-3.532.235-4.885.118-2.59.059-2.296-.176-5.18-.235-3.12-.41-5.71-.176-7.653.176-1.177.411-2.178 1.115-2.649C59.98.06 60.684 0 61.448 0c.41 0 1.35 0 2.817.059 2.877.059 4.403.118 4.638.118.47-.06.88.294.94.765 0 .235-.06.47-.236.588-.352.413-.763.295-1.291.295-.763 0-2.172 0-4.11-.06-1.467-.058-2.348-.058-2.7-.058-.411 0-.705 0-.88.059h-.177zM8.799 54.155v-6.8h1.822c1.39 0 2.189.584 2.189 1.752 0 .593-.291 1.083-.836 1.413.714.452.995.828.995 1.676 0 1.347-.901 1.959-2.273 1.959H8.8zm1.296-3.033v1.96h.545c.676 0 1.033-.396 1.033-.99 0-.65-.45-.97-1.127-.97h-.45zm0-2.693v1.62h.451c.582 0 .967-.34.967-.801 0-.5-.29-.82-.901-.82h-.517zm6.599-1.074h-1.381l1.85 4.05v2.75h1.297v-2.75l1.85-4.05h-1.38l-1.1 2.74-1.136-2.74zm10.445 6.8v-6.8h1.822c1.39 0 2.189.584 2.189 1.752 0 .593-.291 1.083-.836 1.413.714.452.996.828.996 1.676 0 1.347-.902 1.959-2.274 1.959H27.14zm1.296-3.033v1.96h.545c.676 0 1.033-.396 1.033-.99 0-.65-.45-.97-1.127-.97h-.45zm0-2.693v1.62h.451c.583 0 .968-.34.968-.801 0-.5-.292-.82-.902-.82h-.517zm5.575 3.54V49.54c0-1.676.883-2.28 2.142-2.28 1.258 0 2.141.604 2.141 2.28v2.43c0 1.676-.883 2.28-2.141 2.28-1.259 0-2.142-.604-2.142-2.28zm1.296-2.599v2.77c0 .753.33.96.846.96s.845-.207.845-.96v-2.77c0-.753-.329-.96-.845-.96-.517 0-.846.207-.846.96zm5.876-2.015v4.766c0 1.497.873 2.128 2.207 2.128 1.334 0 2.217-.63 2.217-2.128v-4.766H44.31v4.756c0 .65-.291.99-.92.99-.63 0-.912-.34-.912-.99v-4.756h-1.296zm11.859 6.8h-1.39l-1.128-2.769h-.62v2.769h-1.296v-6.8h1.879c1.559 0 2.301.753 2.301 2.034 0 .848-.3 1.46-1.024 1.733l1.278 3.033zm-3.138-5.726v1.883h.667c.573 0 .92-.282.92-.942 0-.659-.347-.941-.92-.941h-.667zm6.947 5.726v-4.389h.018l1.982 4.389h1.24v-6.8h-1.183v4.031h-.02l-1.803-4.031h-1.418v6.8h1.184z"/>
+            </g>
+        </svg>
+    </div>
+    <nav class="c-nav">
+        <a href="{% url 'home' %}" class="c-nav__link c-nav__link--about">The Story</a>
+        <span class="c-nav__separator u-hide-on-mobile">&mdash;</span>
+        <!-- <a href="#" class="c-nav__link c-nav__link--preorder">Preorder Now</a> -->
+        <a href="{% url 'cart' %}" class="c-nav__link c-nav__link--list">Cart</a>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<script href="{% static 'js/app.js' %}" type="text/javascript"></script>
+<script>
+    //get the user
+    var user = {{ request.user }}
+
+    console.log(cart)
+    //get the cookie
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    //if the cookie has the name we want
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie=('csrftoken')
+
+
+</script>
+<script>
+     //get element by class name
+    const updateButtons = document.getElementsByClassName('update-cart')
+
+    for (let i = 0; i < updateButtons.length; i++) {
+        updateButtons[i].addEventListener('click', function () {
+            let productId = this.dataset.product
+            let action = this.dataset.action
+            console.log(productId, action)
+            if (user === undefined) {
+                //if user doesnot exist
+                addCookieItem(productId, action)
+            } else {
+                //if user does exist
+                updateUserOrder(productId, action)
+            }
+        })
+    }
+
+    //create cart
+    var cart = JSON.parse(getCookie('cart'))
+    if(cart == undefined || cart == null){
+        cart ={}
+
+    }
+    //add the cart
+    function addCookieItem(productId,action){
+        console.log('User is not authenticated')
+        if(action == 'add'){
+            if(cart[productId]==undefined){
+                cart[productId]={'quantity':1}
+                console.log(cart)
+            }else{
+                cart[productId]['quantity'] += 1
+                console.log(cart)
+
+            }
+        }
+        if(action =='remove'){
+            cart[productId]['quantity']-=1
+            if(cart[productId]['quantity']<=0){
+                console.log('Item should be deleted')
+                delete  cart[productId]
+            }
+        }
+       document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        location.reload()
+    }
+
+    //if user logged in
+    function updateUserOrder(productId, action) {
+        console.log('User is logged in, sending data...')
+        var url = '/update_item/'
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken':csrftoken
+            },
+            body: JSON.stringify({'productId': productId, 'action': action})
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
+</script>
+
+
+<!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
