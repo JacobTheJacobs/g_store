@@ -5,7 +5,7 @@ Cart
 {% endblock %}
 
 {% block content %}
-  {% if not cart_items %}
+  {% if not cartItems  %}
     <div class="text-center">
       <br>
       <h1 class="text-center product_title">
@@ -33,18 +33,18 @@ Cart
             </th>
           </tr>
         </thead>
-        {% for cart_item in cart_items %}
+        {% for cart_item in items %}
           <tr>
             <td>
               <a href="cart_item.product.get_url">
-                <img src="{{cart_item.product.image.url}}" width="100" height="100" alt="">
+                <img src="{{cart_item.product.imageURL}}" width="100" height="100" alt="">
               </a>
             </td>
             <td class="text-left">
-              {{cart_item.product.name}}
+             <h2>{{cart_item.product.name}}</h2>
               <br>
-              <strong>קוד</strong> : {{cart_item.product.id}}
-              <br>
+
+
               <strong>מחיר</strong>
                 <span></span>
                  :
@@ -54,20 +54,14 @@ Cart
               <strong>כמות</strong>  : {{cart_item.quantity}}
             </td>
             <td>
-              ש"ח {{cart_item.sub_total}}
+               {{cart_item.sub_total}}
             </td>
-            {% if cart_item.quantity < cart_item.product.stock %}
-          <td>
-              &nbsp;<a href="{% url 'add_cart' cart_item.product.id %}"><i class="fas fa-plus-circle cart_icon"></i></a>
-              &nbsp;<a href="{% url 'cart_remove' cart_item.product.id %}"><i class="fas fa-minus-circle cart_icon"></i></a>
-              &nbsp;<a href="{% url 'cart_remove_product' cart_item.product.id %}"><i class="fas fa-trash-alt cart_icon"></i></a>
-            </td>
-            {% else %}
             <td>
-              &nbsp;<a href="{% url 'cart_remove' cart_item.product.id %}"><i class="fas fa-minus-circle cart_icon"></i></a>
-              &nbsp;<a href="{% url 'cart_remove_product' cart_item.product.id %}"><i class="fas fa-trash-alt cart_icon"></i></a>
+              &nbsp;<button  class="update-cart"><i data-product="{{ cart_item.product.id }}" data-action="add" class="update-cart fas fa-plus-circle cart_icon"></i></button>
+              &nbsp;<button data-product="{{ cart_item.product.id }}" data-action="remove" class="update-cart"><i  class="fas fa-minus-circle cart_icon"></i></button>
+              &nbsp;<button data-product="{{ cart_item.product.id }}" data-action="delete" class="update-cart"><i class="fas fa-trash-alt cart_icon"></i></button>
             </td>
-            {% endif %}
+
           </tr>
         {% endfor %}
 
@@ -90,7 +84,7 @@ Cart
             </tr>
             <tr>
               <td class="text-left">
-                  <span>סך</span>: <strong>ש"ח{{total}}</strong>
+                  <span>סך</span>: <strong>ש"ח{{order.get_cart_total}}</strong>
               </td>
             </tr>
           </tbody>

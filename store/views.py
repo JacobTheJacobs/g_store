@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Product
 from django.http import JsonResponse
 import json
+from . utils import cookieCart
 
 
 # Create your views here.
@@ -21,19 +22,23 @@ def productPage(request, product_slug):
 
 
 def cartPage(request):
-    try:
-        cart = json.loads(request.COOKIES['cart'])
-    except:
-        cart={}
-    items =[]
-    print(cart)
-    order ={'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
-    cartItems = order['get_cart_items']
-    #loop thorough the items
+    cookieData = cookieCart(request)
+    cartItems = cookieData['cartItems']
+    order = cookieData['order']
+    items = cookieData['items']
 
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    return render(request, 'cart.html', context)
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'cart.html',context)
+def checkout(request):
+    cookieData = cookieCart(request)
+    cartItems = cookieData['cartItems']
+    order = cookieData['order']
+    items = cookieData['items']
+
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    return render(request, 'cart.html', context)
+
 
 
 def updateItem(request):
