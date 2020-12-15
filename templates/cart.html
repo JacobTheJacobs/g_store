@@ -56,6 +56,7 @@ Cart
             <td>
                {{cart_item.sub_total}}
             </td>
+
             <td>
               &nbsp;<button  class="update-cart"><i data-product="{{ cart_item.product.id }}" data-action="add" class="update-cart fas fa-plus-circle cart_icon"></i></button>
               &nbsp;<button data-product="{{ cart_item.product.id }}" data-action="remove" class="update-cart"><i  class="fas fa-minus-circle cart_icon"></i></button>
@@ -63,9 +64,21 @@ Cart
             </td>
 
           </tr>
+
         {% endfor %}
 
+
+
       </table>
+        <div >
+                  <span>סך</span>: <strong>ש"ח{{order.get_cart_total}}</strong>
+              </div>
+<hr>
+          <a href="{% url 'home' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-lg btn-block bg-dark text-white">
+              המשך לקניות
+            </button>
+          </a>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
       <table class="table cart_table">
@@ -82,34 +95,107 @@ Cart
                 בבקשה תבדקו את הפריטים שלך לפני שממשיכים לתשלום
               </td>
             </tr>
-            <tr>
-              <td class="text-left">
-                  <span>סך</span>: <strong>ש"ח{{order.get_cart_total}}</strong>
-              </td>
-            </tr>
+
           </tbody>
         </table>
         <div class="mx-auto">
-        <form class="" action="" method="POST">
-            {% csrf_token %}
-            <script src="https://checkout.stripe.com/checkout.js"
-            class="stripe-button"
-            data-key="{{ data_key }}"
-            data-amount="{{ stripe_total }}"
-            data-name="Z-Store"
-            data-description="{{ description }}"
-            data-locale="auto"
-            data-currency="usd"
-            data-shipping-address="true"
-            data-billing-address="true"
-            data-zip-code="true">
+
+ {% if submitted %}
+    <p class="success">
+     Your message was submitted successfully. Thank you.
+   </p>
+
+{% else %}
+<form id="myForm" >
+	<div id="user-info">
+		<div class="form-field">
+			<input required class="form-control" type="text" name="name" placeholder="שם">
+		</div>
+		<div class="form-field">
+			<input required class="form-control" type="email" name="email" placeholder="אימייל">
+		</div>
+	</div>
+
+	<div id="shipping-info">
+		<div class="form-field">
+			<input class="form-control" type="text" name="address" placeholder="רחוב">
+		</div>
+		<div class="form-field">
+			<input class="form-control" type="text" name="city" placeholder="עיר">
+		</div>
+		<div class="form-field">
+			<input class="form-control" type="text" name="zipcode" placeholder="מיקוד">
+		</div>
+	</div>
+	<hr>
+<input id="form-sumbit" class="btn btn-success btn-block" type="submit" value="לתשלום">
+</form>
+  <script>
+                var shipping = '{{ order.shipping }}';
+                var total = '{{ order.get_cart_total | floatformat:2 }}';
+
+
+
+                 var form = document.getElementById('myForm');
+
+                 function handleForm(event) {
+
+                     event.preventDefault();
+                     submitFormData();
+                 }
+
+                form.addEventListener('submit',function(e){
+                     handleForm(e);
+                })
+
+
+
+
+                function submitFormData() {
+                    console.log('button clicked');
+
+                    var userFormData = {
+                        'name':null,
+                        'email':null,
+                        'total':null
+                    }
+                      var shippingInfo = {
+                        'address':null,
+                        'city':null,
+                        'zipcode':null
+                    }
+
+
+                        shippingInfo.address= form.address.value;
+                        shippingInfo.city= form.city.value;
+                        shippingInfo.zipcode= form.zipcode.value;
+                        userFormData.name= form.name.value;
+                        userFormData.email= form.email.value;
+
+
+
+                    var url = '/cart/';
+
+                    fetch(url,{
+                      method:'POST',
+                      headers:{
+                          'Content-Type':'application/json',
+                          'X-CSRFToken':csrftoken
+                      },
+                        body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+                    })
+                        .then((response)=>response.json())
+                        .then((data)=>{
+                            console.log(data)
+                        alert('Transaction completed');
+                        cart={};
+                        document.cookie ='cart=' +JSON.stringify(cart)+ ";domain=;path=/";
+
+                    })
+                }
             </script>
-          </form>
-          <a href="{% url 'home' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-lg btn-block bg-dark text-white">
-              המשך לקניות
-            </button>
-          </a>
+{% endif %}
+
         </div>
     </div>
   </div>

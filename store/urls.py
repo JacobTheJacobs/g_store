@@ -5,6 +5,7 @@ urlpatterns =[
     path('', views.home,name='home'),
     path('<slug:product_slug>', views.productPage, name='product_detail'),
     path('cart/', views.cartPage, name='cart'),
+    path('cart/', views.processOrder, name='processOrderForm'),
     path('update_item/', views.updateItem, name='update_item'),
 
 ]

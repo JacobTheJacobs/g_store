@@ -81,7 +81,7 @@
     if(cart == undefined || cart == null){
         cart ={}
         document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
-        location.reload()
+        window.location.reload()
     }
 
     //add the cart
@@ -131,6 +131,7 @@
                 console.log(data)
             })
     }
+
 
 </script>
 
